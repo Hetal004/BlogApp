@@ -1,0 +1,100 @@
+.blog {
+    width: 60rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.blog-data {
+    text-align: justify;
+    padding: 4% 2%;
+}
+
+.recent-post-data {
+    text-align: justify;
+    padding: 0% 2% 5% 2%;
+}
+
+.img1 {
+    width: 60rem;
+    height: 20rem;
+}
+
+.span-date {
+    color: gray;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 19px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #2d49c5db;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #d18c5e;
+    margin: 4px 0px;
+}
+
+.button:hover {
+    background-color: #2d49c5db
+}
+
+.button:active {
+    background-color: #2d49c5db;
+    box-shadow: 0 5px #d18c5e;
+    transform: translateY(4px);
+}
+
+.mono-blog {
+    width: 27rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mono-blog-img {
+    width: 27rem;
+    height: 10rem;
+}
+
+.post-header,
+.tag-header {
+    background-color: gray;
+}
+
+.recent-posts {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.recent-post-title {
+    color: white;
+    padding: 16px 0px 10px 12px;
+    margin-bottom: 0;
+}
+
+.tag {
+    color: white;
+    background-color: gray;
+    padding: 2%;
+    display: inline;
+}
+
+.tag-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.all-tags {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1.5fr 2.2fr repeat(3, 1.5fr);
+    column-gap: 10px;
+    row-gap: 1em;
+    padding: 7% 1%;
+}
+
+.main-blogs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
