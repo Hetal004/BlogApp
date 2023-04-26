@@ -78,6 +78,14 @@
     background-color: gray;
     padding: 2%;
     display: inline;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+}
+
+.tag:hover {
+    background-color: #2d49c5db;
 }
 
 .tag-container {
