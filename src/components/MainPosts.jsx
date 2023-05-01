@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const MainPosts = ({posts, setPosts}) => {
+
+const MainPosts = ({ posts, setPosts, selectedCategory, searchParams }) => {
+  const navigate = useNavigate();
   const getData = () => {
     fetch('mainposts.json'
       , {
@@ -11,13 +14,11 @@ const MainPosts = ({posts, setPosts}) => {
       }
     )
       .then(function (response) {
-        console.log(response)
         return response.json();
       })
       .then(function (myJson) {
-        console.log(myJson);
+        // console.log(myJson);
         setPosts(myJson)
-        // console.log(data[0])
       });
   }
 
@@ -41,26 +42,22 @@ const MainPosts = ({posts, setPosts}) => {
   useEffect(() => {
     getData()
   }, [])
+
   return (
-    <>
-      {posts && posts.length > 0 && posts.map((item) => {
-        return (
-          <div className='main-blogs'>
-            <div className="blog">
-              <img className='img1' src={item.img_src} alt="Blog1_Img1" />
-              <div className="blog-data">
-                <h2>{item.title}</h2>
-                <p>{item.subtitle}, <span className='span-date'>{item.date}</span></p>
-                <ReadMoreLess limit={253}>
-                  {item.desc}
-                </ReadMoreLess>
-              </div>
-            </div>
+    <div className='main-blogs'>
+      {posts.filter(selectedCategory? ((item) => item.category === selectedCategory) : ((item) => item.category)).map((item) => (
+        <div className="blog">
+          <img className='img1' src={item.img_src} alt="Blog_Img" />
+          <div className="blog-data">
+            <h2>{item.title}</h2>
+            <p>{item.subtitle}, <span className='span-date'>{item.date}</span></p>
+            <ReadMoreLess limit={253}>
+              {item.desc}
+            </ReadMoreLess>
           </div>
-        )
-      })
-      }
-    </>
+        </div>
+      ))}
+    </div>
   );
 }
 

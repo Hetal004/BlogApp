@@ -1,32 +1,26 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const Tags = () => {
+const Tags = ({ posts, searchParams, setSelectedCategory, selectedCategory, setSearchParams, setFilteredData }) => {
+  const navigate = useNavigate();
+  const selectedTag = (e) => {
+    setSelectedCategory(e.target.innerText)
+    setSearchParams({ category: e.target.innerText });
+    navigate(`/?category=${e.target.innerText}`)
+  }
+
+  const tagDataArray = ["Photos", "Programming", "Beauty", "Blog", "Tech", "Trend", "World", "Creative", "Nature"]
+
   return (
     <div className="tag-container">
       <div className="tag-header">
         <h2 className='recent-post-title'>Tags</h2>
       </div>
+
       <div className="all-tags">
-        <div className='tag'>Photos</div>
-        <div className='tag'>Programming</div>
-        <div className='tag'>Beauty</div>
-        <div className='tag'>Blog</div>
-        <div className='tag'>Tech</div>
-        <div className='tag'>Trend</div>
-        <div className='tag'>World</div>
-        <div className='tag'>Creative</div>
-        <div className='tag'>Nature</div>
-        <div className='tag'>Creative</div>
-        <div className='tag'>Photos</div>
-        <div className='tag'>Programming</div>
-        <div className='tag'>Beauty</div>
-        <div className='tag'>Blog</div>
-        <div className='tag'>Tech</div>
-        <div className='tag'>Trend</div>
-        <div className='tag'>World</div>
-        <div className='tag'>Creative</div>
-        <div className='tag'>Nature</div>
-        <div className='tag'>Creative</div>
+        {tagDataArray.map((item) => (
+        <button className='tag' onClick={(e) => selectedTag(e)}>{item}</button>
+        ))}
       </div>
     </div>
   )

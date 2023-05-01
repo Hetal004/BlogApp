@@ -24,24 +24,17 @@ const RecentPost = () => {
   return (
     <>
       {recentData && recentData.length > 0 &&
-
         <div className="recent-posts">
           <div className="post-header">
             <h2 className='recent-post-title'>Recent Posts</h2>
           </div>
-          <div className="recent-post-data">
-            <h4>{recentData[0].title}</h4>
-            <p>{recentData[0].desc}</p>
-            <hr />
-            <h4>{recentData[1].title}</h4>
-            <p>{recentData[1].desc}</p>
-            <hr />
-            <h4>{recentData[2].title}</h4>
-            <p>{recentData[2].desc}</p>
-            <hr />
-            <h4>{recentData[3].title}</h4>
-            <p>{recentData[3].desc}</p>
-          </div>
+          {recentData.map((item) => (
+            <div className="recent-post-data">
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+              <hr />
+            </div>
+          ))}
         </div>
       }
     </>
